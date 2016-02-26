@@ -48,6 +48,7 @@
             this.btnWheat = new System.Windows.Forms.Button();
             this.btnWhite = new System.Windows.Forms.Button();
             this.pnlCheese = new System.Windows.Forms.Panel();
+            this.btnNoCheese = new System.Windows.Forms.Button();
             this.btnSwiss = new System.Windows.Forms.Button();
             this.btnCheddar = new System.Windows.Forms.Button();
             this.btnAmerican = new System.Windows.Forms.Button();
@@ -86,7 +87,6 @@
             this.lblSummary = new System.Windows.Forms.Label();
             this.pnlComplete = new System.Windows.Forms.Panel();
             this.lblComplete = new System.Windows.Forms.Label();
-            this.btnNoCheese = new System.Windows.Forms.Button();
             this.pnlStart.SuspendLayout();
             this.pnlLocation.SuspendLayout();
             this.pnlOrderType.SuspendLayout();
@@ -258,9 +258,9 @@
             this.pnlBun.Controls.Add(this.btnPotato);
             this.pnlBun.Controls.Add(this.btnWheat);
             this.pnlBun.Controls.Add(this.btnWhite);
-            this.pnlBun.Location = new System.Drawing.Point(306, 172);
+            this.pnlBun.Location = new System.Drawing.Point(212, 126);
             this.pnlBun.Name = "pnlBun";
-            this.pnlBun.Size = new System.Drawing.Size(918, 415);
+            this.pnlBun.Size = new System.Drawing.Size(1012, 461);
             this.pnlBun.TabIndex = 4;
             this.pnlBun.VisibleChanged += new System.EventHandler(this.pnlBun_VisibleChanged);
             // 
@@ -311,10 +311,21 @@
             this.pnlCheese.Controls.Add(this.btnCheddar);
             this.pnlCheese.Controls.Add(this.btnAmerican);
             this.pnlCheese.Controls.Add(this.lblCheeseTitle);
-            this.pnlCheese.Location = new System.Drawing.Point(306, 172);
+            this.pnlCheese.Location = new System.Drawing.Point(212, 126);
             this.pnlCheese.Name = "pnlCheese";
-            this.pnlCheese.Size = new System.Drawing.Size(918, 415);
+            this.pnlCheese.Size = new System.Drawing.Size(1012, 461);
             this.pnlCheese.TabIndex = 5;
+            this.pnlCheese.VisibleChanged += new System.EventHandler(this.pnlCheese_VisibleChanged);
+            // 
+            // btnNoCheese
+            // 
+            this.btnNoCheese.Location = new System.Drawing.Point(368, 270);
+            this.btnNoCheese.Name = "btnNoCheese";
+            this.btnNoCheese.Size = new System.Drawing.Size(75, 80);
+            this.btnNoCheese.TabIndex = 4;
+            this.btnNoCheese.Text = "No Cheese";
+            this.btnNoCheese.UseVisualStyleBackColor = true;
+            this.btnNoCheese.Click += new System.EventHandler(this.btnNoCheese_Click);
             // 
             // btnSwiss
             // 
@@ -363,10 +374,11 @@
             this.pnlToppings.Controls.Add(this.btnOnions);
             this.pnlToppings.Controls.Add(this.btnTomatoes);
             this.pnlToppings.Controls.Add(this.lblToppingsTitle);
-            this.pnlToppings.Location = new System.Drawing.Point(306, 172);
+            this.pnlToppings.Location = new System.Drawing.Point(212, 126);
             this.pnlToppings.Name = "pnlToppings";
-            this.pnlToppings.Size = new System.Drawing.Size(918, 415);
+            this.pnlToppings.Size = new System.Drawing.Size(1012, 461);
             this.pnlToppings.TabIndex = 6;
+            this.pnlToppings.VisibleChanged += new System.EventHandler(this.pnlToppings_VisibleChanged);
             // 
             // btnLettuce
             // 
@@ -376,6 +388,7 @@
             this.btnLettuce.TabIndex = 4;
             this.btnLettuce.Text = "Lettuce";
             this.btnLettuce.UseVisualStyleBackColor = true;
+            this.btnLettuce.Click += new System.EventHandler(this.btnLettuce_Click);
             // 
             // btnPickles
             // 
@@ -385,6 +398,7 @@
             this.btnPickles.TabIndex = 3;
             this.btnPickles.Text = "Pickles";
             this.btnPickles.UseVisualStyleBackColor = true;
+            this.btnPickles.Click += new System.EventHandler(this.btnPickles_Click);
             // 
             // btnOnions
             // 
@@ -394,6 +408,7 @@
             this.btnOnions.TabIndex = 2;
             this.btnOnions.Text = "Onions";
             this.btnOnions.UseVisualStyleBackColor = true;
+            this.btnOnions.Click += new System.EventHandler(this.btnOnions_Click);
             // 
             // btnTomatoes
             // 
@@ -403,6 +418,7 @@
             this.btnTomatoes.TabIndex = 1;
             this.btnTomatoes.Text = "Tomatoes";
             this.btnTomatoes.UseVisualStyleBackColor = true;
+            this.btnTomatoes.Click += new System.EventHandler(this.btnTomatoes_Click);
             // 
             // lblToppingsTitle
             // 
@@ -421,10 +437,11 @@
             this.pnlSauce.Controls.Add(this.btnMustard);
             this.pnlSauce.Controls.Add(this.btnKetchup);
             this.pnlSauce.Controls.Add(this.lblSauceTitle);
-            this.pnlSauce.Location = new System.Drawing.Point(306, 172);
+            this.pnlSauce.Location = new System.Drawing.Point(212, 126);
             this.pnlSauce.Name = "pnlSauce";
-            this.pnlSauce.Size = new System.Drawing.Size(918, 415);
+            this.pnlSauce.Size = new System.Drawing.Size(1012, 461);
             this.pnlSauce.TabIndex = 7;
+            this.pnlSauce.VisibleChanged += new System.EventHandler(this.pnlSauce_VisibleChanged);
             // 
             // btnBbq
             // 
@@ -434,6 +451,7 @@
             this.btnBbq.TabIndex = 4;
             this.btnBbq.Text = "BBQ";
             this.btnBbq.UseVisualStyleBackColor = true;
+            this.btnBbq.Click += new System.EventHandler(this.btnBbq_Click);
             // 
             // btnMayo
             // 
@@ -443,6 +461,7 @@
             this.btnMayo.TabIndex = 3;
             this.btnMayo.Text = "Mayo";
             this.btnMayo.UseVisualStyleBackColor = true;
+            this.btnMayo.Click += new System.EventHandler(this.btnMayo_Click);
             // 
             // btnMustard
             // 
@@ -452,6 +471,7 @@
             this.btnMustard.TabIndex = 2;
             this.btnMustard.Text = "Mustard";
             this.btnMustard.UseVisualStyleBackColor = true;
+            this.btnMustard.Click += new System.EventHandler(this.btnMustard_Click);
             // 
             // btnKetchup
             // 
@@ -461,6 +481,7 @@
             this.btnKetchup.TabIndex = 1;
             this.btnKetchup.Text = "Ketchup";
             this.btnKetchup.UseVisualStyleBackColor = true;
+            this.btnKetchup.Click += new System.EventHandler(this.btnKetchup_Click);
             // 
             // lblSauceTitle
             // 
@@ -682,28 +703,18 @@
             this.lblComplete.TabIndex = 0;
             this.lblComplete.Text = "Thank You!";
             // 
-            // btnNoCheese
-            // 
-            this.btnNoCheese.Location = new System.Drawing.Point(368, 270);
-            this.btnNoCheese.Name = "btnNoCheese";
-            this.btnNoCheese.Size = new System.Drawing.Size(75, 80);
-            this.btnNoCheese.TabIndex = 4;
-            this.btnNoCheese.Text = "No Cheese";
-            this.btnNoCheese.UseVisualStyleBackColor = true;
-            this.btnNoCheese.Click += new System.EventHandler(this.btnNoCheese_Click);
-            // 
             // Ordering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1236, 788);
+            this.Controls.Add(this.pnlSauce);
+            this.Controls.Add(this.pnlToppings);
             this.Controls.Add(this.pnlCheese);
             this.Controls.Add(this.pnlBun);
             this.Controls.Add(this.pnlStack);
             this.Controls.Add(this.pnlOrderType);
             this.Controls.Add(this.pnlBuild);
-            this.Controls.Add(this.pnlToppings);
-            this.Controls.Add(this.pnlSauce);
             this.Controls.Add(this.pnlSpecialty);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.pnlPrevNext);
