@@ -16,11 +16,19 @@ namespace OrderingApp
         int pattyNum;
         string orderStep; //keeps track of current panel
 
-        public string[] optionsArray = new string[4];
+        //public string[] optionsArray = new string[4];
+
+        List<string> optionsList = new List<string>();
+        List<string> cheeseList = new List<string>();
+        List<string> toppingsList = new List<string>();
+        List<string> sauceList = new List<string>();
 
         string bunType;
         string cheeseType;
-        string[] sauce = new string[] {};
+
+        //string[] cheeseArray;
+        //string[] toppingsArray;
+        //string[] sauce = new string[] {};
         
         public Ordering()
         {
@@ -91,7 +99,7 @@ namespace OrderingApp
                 orderStep = "bun";
                 btnNext.Enabled = false;
 
-                while (optionsArray[0] == "")
+                if (optionsList.Count < 1)
                 {
                     btnNext.Enabled = false;
                 }
@@ -105,7 +113,7 @@ namespace OrderingApp
                 orderStep = "cheese";
                 btnNext.Enabled = false;
 
-                while (optionsArray[1] == "")
+                if (optionsList.Count < 1)
                 {
                     btnNext.Enabled = false;
                 }
@@ -120,7 +128,7 @@ namespace OrderingApp
                 orderStep = "toppings";
                 btnNext.Enabled = false;
 
-                while (optionsArray[2] == "")
+                if (optionsList.Count < 1)
                 {
                     btnNext.Enabled = false;
                 }
@@ -134,7 +142,7 @@ namespace OrderingApp
                 orderStep = "sauce";
                 btnNext.Enabled = false;
 
-                while (optionsArray[3] == "")
+                if (optionsList.Count < 1)
                 {
                     btnNext.Enabled = false;
                 }
@@ -250,7 +258,7 @@ namespace OrderingApp
         private void btnWhite_Click(object sender, EventArgs e)
         {
             string bunType = Bun.createBun("whiteBun");
-            optionsArray[0] = bunType;
+            optionsList.Add(bunType);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -258,7 +266,7 @@ namespace OrderingApp
         private void btnWheat_Click(object sender, EventArgs e)
         {
             string bunType = Bun.createBun("wheatBun");
-            optionsArray[0] = bunType;
+            optionsList.Add(bunType);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -266,7 +274,7 @@ namespace OrderingApp
         private void btnPotato_Click(object sender, EventArgs e)
         {
             string bunType = Bun.createBun("potatoBun");
-            optionsArray[0] = bunType;
+            optionsList.Add(bunType);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -274,7 +282,8 @@ namespace OrderingApp
         private void btnAmerican_Click(object sender, EventArgs e)
         {
             string cheeseType = Cheese.createCheese("americanCheese");
-            optionsArray[1] = cheeseType;
+            cheeseList.Add(cheeseType);
+            optionsList.AddRange(cheeseList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -282,7 +291,8 @@ namespace OrderingApp
         private void btnCheddar_Click(object sender, EventArgs e)
         {
             string cheeseType = Cheese.createCheese("cheddarCheese");
-            optionsArray[1] = cheeseType;
+            cheeseList.Add(cheeseType);
+            optionsList.AddRange(cheeseList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -290,7 +300,8 @@ namespace OrderingApp
         private void btnSwiss_Click(object sender, EventArgs e)
         {
             string cheeseType = Cheese.createCheese("swissCheese");
-            optionsArray[1] = cheeseType;
+            cheeseList.Add(cheeseType);
+            optionsList.AddRange(cheeseList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -298,7 +309,8 @@ namespace OrderingApp
         private void btnNoCheese_Click(object sender, EventArgs e)
         {
             string cheeseType = Cheese.createCheese("noCheese");
-            optionsArray[1] = cheeseType;
+            cheeseList.Add(cheeseType);
+            optionsList.AddRange(cheeseList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -306,27 +318,29 @@ namespace OrderingApp
         private void btnTomatoes_Click(object sender, EventArgs e)
         {
             string toppingsType = Toppings.createToppings("tomatoes");
-            buildToppings(toppingsType);
-            //optionsArray[2] = toppingsType;
-            //buildOptions();
+            //buildToppings(toppingsType);
+            toppingsList.Add(toppingsType);
+            optionsList.AddRange(toppingsList);
+            buildOptions();
             btnNext.Enabled = true;
         }
 
         private void buildToppings(string topping)
         {
-            var toppingsArray = new string[4];
-            for (int i = 0; i < toppingsArray.Length; i++)
-            {
-                toppingsArray[i] = topping;
-                optionsArray[2] += toppingsArray[i];
-            }
-            buildOptions();
+            //var toppingsArray = new string[4];
+            //for (int i = 0; i < toppingsArray.Length; i++)
+            //{
+            //    toppingsArray[i] = topping;
+            //    optionsArray[2] += toppingsArray[i];
+            //}
+            //buildOptions();
         }
 
         private void btnOnions_Click(object sender, EventArgs e)
         {
             string toppingsType = Toppings.createToppings("onions");
-            optionsArray[2] = toppingsType;
+            toppingsList.Add(toppingsType);
+            optionsList.AddRange(toppingsList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -334,7 +348,8 @@ namespace OrderingApp
         private void btnPickles_Click(object sender, EventArgs e)
         {
             string toppingsType = Toppings.createToppings("pickles");
-            optionsArray[2] = toppingsType;
+            toppingsList.Add(toppingsType);
+            optionsList.AddRange(toppingsList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -342,7 +357,8 @@ namespace OrderingApp
         private void btnLettuce_Click(object sender, EventArgs e)
         {
             string toppingsType = Toppings.createToppings("lettuce");
-            optionsArray[2] = toppingsType;
+            toppingsList.Add(toppingsType);
+            optionsList.AddRange(toppingsList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -350,7 +366,8 @@ namespace OrderingApp
         private void btnKetchup_Click(object sender, EventArgs e)
         {
             string sauceType = Sauce.createSauce("ketchup");
-            optionsArray[3] = sauceType;
+            sauceList.Add(sauceType);
+            optionsList.AddRange(sauceList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -358,7 +375,8 @@ namespace OrderingApp
         private void btnMustard_Click(object sender, EventArgs e)
         {
             string sauceType = Sauce.createSauce("mustard");
-            optionsArray[3] = sauceType;
+            sauceList.Add(sauceType);
+            optionsList.AddRange(sauceList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -366,7 +384,8 @@ namespace OrderingApp
         private void btnMayo_Click(object sender, EventArgs e)
         {
             string sauceType = Sauce.createSauce("mayo");
-            optionsArray[3] = sauceType;
+            sauceList.Add(sauceType);
+            optionsList.AddRange(sauceList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -374,7 +393,8 @@ namespace OrderingApp
         private void btnBbq_Click(object sender, EventArgs e)
         {
             string sauceType = Sauce.createSauce("bbq");
-            optionsArray[3] = sauceType;
+            sauceList.Add(sauceType);
+            optionsList.AddRange(sauceList);
             buildOptions();
             btnNext.Enabled = true;
         }
@@ -386,7 +406,7 @@ namespace OrderingApp
 
         private void buildOptions()
         {
-            lblStack.Text = string.Join("\n", optionsArray);
+            lblStack.Text = string.Join("\n", optionsList);
         }
     }
 }
