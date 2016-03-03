@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace OrderingApp
 {
-    class Toppings
+    public class Toppings
     {
-        static public string createToppings(string _toppingsType)
+	    public Toppings(string name)
+	    {
+		    this.ToppingList = new List<string>();
+		    this.Name = name;
+	    }
+        public List<string> AddToppings(string _toppingsType)
         {
-            var toppingsType = _toppingsType;
-            return toppingsType;
+            this.ToppingList.Add(_toppingsType);
+            return this.ToppingList;
         }
+
+	    public List<string> ToppingList { get; set; }
+		public string Name { get; set; }
     }
 }

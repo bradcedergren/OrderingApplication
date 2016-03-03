@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OrderingApp;
-
-namespace OrderingApp
+﻿namespace OrderingApp
 {
-    class Cheese
+    public class Cheese
     {
-        static public string createCheese(string _cheeseType)
+        public Cheese(string name)
         {
-            //var orderingApp = new Ordering();
-            var cheeseType = _cheeseType;
-            return cheeseType;
+	        this.Name = name;
         }
+
+		public string Name { get; set; }
+		
     }
 }

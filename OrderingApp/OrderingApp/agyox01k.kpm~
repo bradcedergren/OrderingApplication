@@ -16,27 +16,14 @@ namespace OrderingApp
 		List<string> optionsList = new List<string>();
 		List<Cheese> cheeseList = new List<Cheese>();
 		List<Toppings> toppingsList = new List<Toppings>();
-		List<Sauce> sauceList = new List<Sauce>();
-		List<Bun> bunList = new List<Bun>();
-
-		Bun wheat = new Bun("wheat");
-		Bun white = new Bun("Wheat");
-		Bun potato = new Bun("Potato");
-		Cheese american = new Cheese("american");
-		Cheese cheddar = new Cheese("cheddar");
-		Cheese swiss = new Cheese("swiss");
-		Toppings tomatoes = new Toppings("tomatoes");
-		Toppings onions = new Toppings("onions");
-		Toppings pickles = new Toppings("pickles");
-		Toppings lettuce = new Toppings("lettuce");
-		Sauce ketchup = new Sauce("ketchup");
-		Sauce mustard = new Sauce("mustard");
-		Sauce mayo = new Sauce("mayo");
-		Sauce bbq = new Sauce("bbq");
-
+		List<string> sauceList = new List<string>();
 
 		string bunType;
 		string cheeseType;
+
+		//string[] cheeseArray;
+		//string[] toppingsArray;
+		//string[] sauce = new string[] {};
 
 		public Ordering()
 		{
@@ -263,35 +250,33 @@ namespace OrderingApp
 			pnlStack.Visible = true;
 		}
 
-		#region bun
 		private void btnWhite_Click(object sender, EventArgs e)
 		{
-			updateBunList(white, false);
-			updateBunOptions();
+			string bunType = Bun.createBun("whiteBun");
+			optionsList.Add(bunType);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
 		private void btnWheat_Click(object sender, EventArgs e)
 		{
-			updateBunList(wheat, false);
-			updateBunOptions();
+			string bunType = Bun.createBun("wheatBun");
+			optionsList.Add(bunType);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
 		private void btnPotato_Click(object sender, EventArgs e)
 		{
-			updateBunList(potato, false);
-			updateBunOptions();
+			string bunType = Bun.createBun("potatoBun");
+			optionsList.Add(bunType);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
-		#endregion
 
-		#region Cheese
 		private void btnAmerican_Click(object sender, EventArgs e)
 		{
+			var american = new Cheese("american");
 			updateCheeseList(american, false);
 			updateCheeseOptions();
 			buildOptions();
@@ -301,6 +286,7 @@ namespace OrderingApp
 
 		private void btnCheddar_Click(object sender, EventArgs e)
 		{
+			var cheddar = new Cheese("cheddar");
 			updateCheeseList(cheddar, false);
 			updateCheeseOptions();
 			buildOptions();
@@ -309,6 +295,7 @@ namespace OrderingApp
 
 		private void btnSwiss_Click(object sender, EventArgs e)
 		{
+			var swiss = new Cheese("swiss");
 			updateCheeseList(swiss, false);
 			updateCheeseOptions();
 			buildOptions();
@@ -317,25 +304,38 @@ namespace OrderingApp
 
 		private void btnNoCheese_Click(object sender, EventArgs e)
 		{
-		//	var NoCheese = new Cheese("No Cheese");
-		//	updateCheeseList(NoCheese, true);
-		//	updateCheeseOptions();
-		//	buildOptions();
-		btnNext.Enabled = true;
+			var NoCheese = new Cheese("No Cheese");
+			updateCheeseList(NoCheese, true);
+			updateCheeseOptions();
+			buildOptions();
+			btnNext.Enabled = true;
 		}
-#endregion
 
-		#region toppings
 		private void btnTomatoes_Click(object sender, EventArgs e)
 		{
+			var tomatoes = new Toppings("tomatoes");
+			toppingsList.Add(tomatoes);
 			updateToppingsList(tomatoes, false);
 			updateToppingsOptions();
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
+		private void buildToppings(string topping)
+		{
+			//var toppingsArray = new string[4];
+			//for (int i = 0; i < toppingsArray.Length; i++)
+			//{
+			//    toppingsArray[i] = topping;
+			//    optionsArray[2] += toppingsArray[i];
+			//}
+			//buildOptions();
+		}
+
 		private void btnOnions_Click(object sender, EventArgs e)
 		{
+			var onions = new Toppings("onions");
+			toppingsList.Add(onions);
 			updateToppingsList(onions, false);
 			updateToppingsOptions();
 			buildOptions();
@@ -344,6 +344,8 @@ namespace OrderingApp
 
 		private void btnPickles_Click(object sender, EventArgs e)
 		{
+			var pickles = new Toppings("pickles");
+			toppingsList.Add(pickles);
 			updateToppingsList(pickles, false);
 			updateToppingsOptions();
 			buildOptions();
@@ -352,83 +354,74 @@ namespace OrderingApp
 
 		private void btnLettuce_Click(object sender, EventArgs e)
 		{
+			var lettuce = new Toppings("lettuce");
+			toppingsList.Add(lettuce);
 			updateToppingsList(lettuce, false);
 			updateToppingsOptions();
 			buildOptions();
 			btnNext.Enabled = true;
 		}
-		#endregion
 
-		#region Sauce
 		private void btnKetchup_Click(object sender, EventArgs e)
 		{
-			updateSauceList(ketchup, false);
-			updateSauceOptions();
+			var sauceType = Sauce.createSauce("ketchup");
+			sauceList.Add(sauceType);
+			optionsList.AddRange(sauceList);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
 		private void btnMustard_Click(object sender, EventArgs e)
 		{
-			updateSauceList(mustard, false);
-			updateSauceOptions();
+			string sauceType = Sauce.createSauce("mustard");
+			sauceList.Add(sauceType);
+			optionsList.AddRange(sauceList);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
 		private void btnMayo_Click(object sender, EventArgs e)
 		{
-			updateSauceList(mayo, false);
-			updateSauceOptions();
+			string sauceType = Sauce.createSauce("mayo");
+			sauceList.Add(sauceType);
+			optionsList.AddRange(sauceList);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
 		private void btnBbq_Click(object sender, EventArgs e)
 		{
-			updateSauceList(bbq, false);
-			updateSauceOptions();
+			string sauceType = Sauce.createSauce("bbq");
+			sauceList.Add(sauceType);
+			optionsList.AddRange(sauceList);
 			buildOptions();
 			btnNext.Enabled = true;
 		}
 
-
-		#endregion
-
-		#region Private Methods
-
-		private void updateBunList(Bun bun, bool remove)
+		private void clickHandler(object sender)
 		{
-			if (remove)
-			{
-				bunList.Clear();
-			}
-			if (!bunList.Contains(bun))
-			{
-				bunList.Add(bun);
-			}
-			else
-			{
-				bunList.Remove(bun);
-				optionsList.Remove(bun.Name);
-			}
+			lblStack.Text = sender.ToString();
 		}
-
 
 		private void updateCheeseList(Cheese cheese, bool remove)
 		{
 			if (remove)
 			{
 				cheeseList.Clear();
+				for (int i = 0; i < optionsList.Count; i++)
+				{
+					if (optionsList[i] == "american" | optionsList[i] == "cheddar" | optionsList[i] == "swiss")
+					{
+						optionsList.RemoveAt(i);
+					}
+				}
+				{
+					
+				}
 			}
-			if (!cheeseList.Contains(cheese))
+			else if (!cheeseList.Contains(cheese))
 			{
 				cheeseList.Add(cheese);
-			}
-			else
-			{
-				cheeseList.Remove(cheese);
-				optionsList.Remove(cheese.Name);
 			}
 		}
 
@@ -436,54 +429,25 @@ namespace OrderingApp
 		{
 			if (remove)
 			{
-				toppingsList.Clear();
+				for (int i = 0; i < toppingsList.Count; i++)
+				{
+					if (toppingsList[i] == topping)
+					{
+						toppingsList.RemoveAt(i);
+					}
+				}
 			}
-			if (!toppingsList.Contains(topping))
+			else if (!toppingsList.Contains(topping))
 			{
 				toppingsList.Add(topping);
 			}
-			else
-			{
-				toppingsList.Remove(topping);
-				optionsList.Remove(topping.Name);
-			}
 		}
 
-		private void updateSauceList(Sauce sauce, bool remove)
+		private void updateToppingsOptions()
 		{
-			if (remove)
+			foreach (var topping in toppingsList)
 			{
-				sauceList.Clear();
-			}
-			if (!sauceList.Contains(sauce))
-			{
-				sauceList.Add(sauce);
-			}
-			else
-			{
-				sauceList.Remove(sauce);
-				optionsList.Remove(sauce.Name);
-			}
-		}
-
-		private void updateBunOptions()
-		{
-			foreach (var bun in bunList)
-			{
-				if (!optionsList.Contains(bun.Name))
-				{
-					optionsList.Add(bun.Name);
-				}
-			}
-			if (bunList.Count == 0)
-			{
-				for (int i = optionsList.Count - 1; i > -1; i--)
-				{
-					if (optionsList[i] == (white.Name) | optionsList[i] == (potato.Name) | optionsList[i] == (wheat.Name))
-					{
-						optionsList.RemoveAt(i);
-					}
-				}
+				optionsList.Add(topping.Name);
 			}
 		}
 
@@ -496,66 +460,11 @@ namespace OrderingApp
 					optionsList.Add(cheese.Name);
 				}
 			}
-			if (cheeseList.Count == 0)
-			{
-				for (int i = optionsList.Count - 1; i > -1; i--)
-				{
-					if (optionsList[i] == (american.Name) | optionsList[i] == (swiss.Name) | optionsList[i] == (cheddar.Name))
-					{
-						optionsList.RemoveAt(i);
-					}
-				}
-			}
 		}
-
-		private void updateToppingsOptions()
-		{
-			foreach (var toppings in toppingsList)
-			{
-				if (!optionsList.Contains(toppings.Name))
-				{
-					optionsList.Add(toppings.Name);
-				}
-			}
-			if (toppingsList.Count == 0)
-			{
-				for (int i = optionsList.Count - 1; i > -1; i--)
-				{
-					if (optionsList[i] == (lettuce.Name) | optionsList[i] == (pickles.Name) | optionsList[i] == (onions.Name) | optionsList[i] == (tomatoes.Name))
-					{
-						optionsList.RemoveAt(i);
-					}
-				}
-			}
-		}
-
-		private void updateSauceOptions()
-		{
-			foreach (var sauce in sauceList)
-			{
-				if (!optionsList.Contains(sauce.Name))
-				{
-					optionsList.Add(sauce.Name);
-				}
-			}
-			if (sauceList.Count == 0)
-			{
-				for (int i = optionsList.Count - 1; i > -1; i--)
-				{
-					if (optionsList[i] == (lettuce.Name) | optionsList[i] == (pickles.Name) | optionsList[i] == (onions.Name) | optionsList[i] == (tomatoes.Name))
-					{
-						optionsList.RemoveAt(i);
-					}
-				}
-			}
-		}
-
 
 		private void buildOptions()
 		{
 			lblStack.Text = string.Join("\n", optionsList);
 		}
-		#endregion
-
 	}
 }
